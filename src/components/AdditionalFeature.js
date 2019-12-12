@@ -18,10 +18,7 @@ const mapDispatchToProps = dispatch => {
 
 const AdditionalFeature = props => {
     let handleAddFeature = () => {
-        props.addFeature(props.feature.price)
-    };
-    let handleRemoveFeature = () => {
-        props.removeFeature(props.feature.price);
+        props.addFeature(props.feature)
     };
 
   return (
@@ -29,9 +26,8 @@ const AdditionalFeature = props => {
       {/* Add an onClick that will let you add a feature to your car */}
       <button className="button" onClick={handleAddFeature} >Add</button>
       {props.feature.name} (+{props.feature.price})
-      <button className="button" onClick={handleRemoveFeature} >Remove</button>
     </li>
   );
 };
 
-export default connect(mapStateToProps, {addFeature, removeFeature})(AdditionalFeature);
+export default connect(mapStateToProps, {addFeature})(AdditionalFeature);
