@@ -17,12 +17,6 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = state => {
-    return {
-
-    }
-}
-
 const App = (props) => {
 
 

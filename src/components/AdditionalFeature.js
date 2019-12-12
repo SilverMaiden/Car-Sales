@@ -10,22 +10,26 @@ const mapStateToProps = state => {
     };
 }
 
+const mapDispatchToProps = dispatch => {
+    addFeature: dispatch(addFeature);
+    removeFeature: dispatch(removeFeature);
+
+}
+
 const AdditionalFeature = props => {
-    let addFeature = event => {
-        event.preventDefault();
-        props.addFeature(props.feature.price);
+    let handleAddFeature = () => {
+        props.addFeature(props.feature.price)
     };
-    let removeFeature = event => {
-        event.preventDefault();
+    let handleRemoveFeature = () => {
         props.removeFeature(props.feature.price);
     };
 
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button" onClick={addFeature} >Add</button>
+      <button className="button" onClick={handleAddFeature} >Add</button>
       {props.feature.name} (+{props.feature.price})
-      <button className="button" onClick={removeFeature} >Remove</button>
+      <button className="button" onClick={handleRemoveFeature} >Remove</button>
     </li>
   );
 };

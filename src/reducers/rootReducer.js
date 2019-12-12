@@ -18,12 +18,13 @@ additionalFeatures: [
 function rootReducer(state = initialState, action) {
     switch(action.type) {
         case 'ADD':
+            console.log("Adding!")
             return {
                 ...state,
                 additionalPrice: state.additionalPrice += action.payload
             };
         case 'REMOVE':
-            console.log(action.payload);
+            console.log("Removing!");
             let amount = action.payload;
             return {
                 ...state,
