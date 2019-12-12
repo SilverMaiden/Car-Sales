@@ -18,29 +18,26 @@ additionalFeatures: [
 function rootReducer(state = initialState, action) {
     switch(action.type) {
         case 'ADD':
-            console.log(action.payload);
+            let newFeature = [Math.random(), action.payload.name, action.payload.price]
             return {
                 ...state,
                 additionalPrice: state.additionalPrice += action.payload.price,
                 car: {
-                    ...state.car, features: [...state.car.features, action.payload.name]
+                    ...state.car, features: [...state.car.features, newFeature]
                 }
             };
         case 'REMOVE':
             console.log("Removing!");
-            console.log(action.payload)
-            let feature = state.additionalFeatures.filter(each => {
-                return each.name === action.payload;
-            })
+            console.log(action.payload[0])
             let newAdditionalFeatures = state.car.features.filter(each => {
-                return each !== action.payload;
+                return each[0] !== action.payload[0];
 
             })
-            console.log(feature);
+            console.log(newAdditionalFeatures)
             let amount = action.payload;
             return {
                 ...state,
-                additionalPrice: state.additionalPrice -= feature[0].price,
+                additionalPrice: state.additionalPrice -= action.payload[2],
                 car: {
                     ...state.car, features: newAdditionalFeatures
                 }

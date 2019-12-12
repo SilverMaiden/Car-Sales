@@ -18,6 +18,7 @@ const mapDispatchToProps = dispatch => {
 
 const AdditionalFeature = props => {
     let handleAddFeature = () => {
+        console.log(props.feature)
         props.addFeature(props.feature)
     };
 

@@ -21,7 +21,7 @@ const AddedFeature = props => {
     <li>
       {/* Add an onClick to run a function to remove a feature */}
       <button className="button" onClick={handleRemoveFeature}>X</button>
-      {props.feature}
+      {props.feature[1]}
     </li>
   );
 };
